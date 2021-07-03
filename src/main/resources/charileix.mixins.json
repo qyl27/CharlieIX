@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "cx.rain.mc.charlieix.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "charlieix.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
