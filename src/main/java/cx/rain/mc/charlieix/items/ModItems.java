@@ -17,6 +17,6 @@ public class ModItems {
     }
 
     // Items below.
-    public static RegistryObject<Item> CHARLIE_CRAVAT = ITEMS.register("charlie_cravat", () -> new CharlieCravat());
+    public static RegistryObject<Item> CHARLIE_CRAVAT = ITEMS.register("cravat", () -> new Cravat());
 
 }
