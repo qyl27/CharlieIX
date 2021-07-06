@@ -12,11 +12,11 @@ public class ModItems {
         DeferredRegister.create(ForgeRegistries.ITEMS, CharlieIX.MODID);
 
     public ModItems(IEventBus bus) {
-        CharlieIX.getLogger().info("Registering block items.");
+        CharlieIX.getLogger().info("Registering items.");
         ITEMS.register(bus);
     }
 
     // Items below.
-    public static RegistryObject<Item> CHARLIE_CRAVAT = ITEMS.register("cravat", () -> new Cravat());
+    public static RegistryObject<Item> CRAVAT = ITEMS.register("cravat", () -> new Cravat());
 
 }

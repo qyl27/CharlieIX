@@ -1,6 +1,7 @@
 package cx.rain.mc.charlieix.data;
 
 import cx.rain.mc.charlieix.CharlieIX;
+import cx.rain.mc.charlieix.data.provider.ModItemTagsProvider;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -19,6 +20,7 @@ public class DataGen {
         }
 
         if (event.includeServer()) {
+            generator.addProvider(new ModItemTagsProvider(generator, helper));
         }
     }
 }

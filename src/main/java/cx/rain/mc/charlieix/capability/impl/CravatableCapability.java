@@ -1,50 +1,36 @@
 package cx.rain.mc.charlieix.capability.impl;
 
 import cx.rain.mc.charlieix.api.capability.ICravatableCapability;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraftforge.common.util.INBTSerializable;
+import net.minecraft.nbt.INBT;
 
 public class CravatableCapability implements ICravatableCapability {
-    private boolean cravat = false;
-    private int color = 0xff0000;
+    private ItemStack cravat;
 
     @Override
-    public boolean hasCravat() {
+    public ItemStack getCravat() {
         return cravat;
     }
 
     @Override
-    public void setHasCravat(boolean value) {
-        cravat = value;
-    }
-
-    @Override
-    public int color() {
-        return color;
-    }
-
-    @Override
-    public void setColor(int value) {
-        color = value;
+    public void setCravat(ItemStack cravatIn) {
+        cravat = cravatIn;
     }
 
     @Override
     public CompoundNBT serializeNBT() {
         CompoundNBT nbt = new CompoundNBT();
-        nbt.putBoolean("HasCravat", hasCravat());
-        nbt.putInt("Color", color());
+        nbt.put("Cravat", cravat.serializeNBT());
         return nbt;
     }
 
     @Override
     public void deserializeNBT(CompoundNBT nbt) {
-        boolean hasCravat = nbt.getBoolean("HasCravat");
-        int color = nbt.getInt("Color");
-        if (color == 0) {
-            color = 0xff0000;
+        INBT stackNbt = nbt.get("Cravat");
+        if (stackNbt instanceof CompoundNBT) {
+            CompoundNBT stackCompoundNbt = (CompoundNBT) stackNbt;
+            cravat = ItemStack.read(stackCompoundNbt);
         }
-
-        setHasCravat(hasCravat);
-        setColor(color);
     }
 }
