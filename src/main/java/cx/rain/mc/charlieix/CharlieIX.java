@@ -1,8 +1,13 @@
 package cx.rain.mc.charlieix;
 
+import cx.rain.mc.charlieix.api.capability.ICravatableCapability;
 import cx.rain.mc.charlieix.block.ModBlockItems;
 import cx.rain.mc.charlieix.block.ModBlocks;
 import cx.rain.mc.charlieix.items.ModItems;
+import net.minecraft.nbt.INBT;
+import net.minecraft.util.Direction;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -10,6 +15,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import javax.annotation.Nullable;
 
 @Mod("charlieix")
 public class CharlieIX {
