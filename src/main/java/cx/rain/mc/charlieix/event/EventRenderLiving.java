@@ -6,6 +6,7 @@ import cx.rain.mc.charlieix.entity.model.CravatWolfEntityModel;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -15,13 +16,13 @@ public class EventRenderLiving {
     @SubscribeEvent
     public static void onRenderWolf(RenderLivingEvent.Post<WolfEntity, CravatWolfEntityModel> event) {
         // Todo
-        new CravatWolfEntityModel().render(event.getMatrixStack(), event.getBuffers().getBuffer(RenderType.getCutout()), event.getLight(), 0, 1.0f, 0.0f, 0.0f, 1.0f);
+        //new CravatWolfEntityModel().render(event.getMatrixStack(), event.getBuffers().getBuffer(RenderType.getCutout()), event.getLight(), 0, 1.0f, 0.0f, 0.0f, 1.0f);
     }
 
 
     @SubscribeEvent
     public static void onRenderPlayer(RenderLivingEvent.Post<PlayerEntity, CravatPlayerEntityModel> event) {
         // Todo
-        new CravatPlayerEntityModel().render(event.getMatrixStack(), event.getBuffers().getBuffer(RenderType.getCutout()), event.getLight(), 0, 1.0f, 0.0f, 0.0f, 1.0f);
+        new CravatPlayerEntityModel().render(event.getMatrixStack(), event.getBuffers().getBuffer(RenderType.getEntityCutout(new ResourceLocation(CharlieIX.MODID, "textures/entity/cravat.png"))), event.getLight(), 0, 1.0f, 0.0f, 0.0f, 1.0f);
     }
 }
