@@ -6,7 +6,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.INBT;
 
 public class CravatableCapability implements ICravatableCapability {
-    private ItemStack cravat;
+    private ItemStack cravat = ItemStack.EMPTY;
 
     @Override
     public ItemStack getCravat() {

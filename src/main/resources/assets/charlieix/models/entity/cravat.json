@@ -2,10 +2,10 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "charlieix:block/cravat_1",
-		"1": "charlieix:block/cravat_2",
-		"2": "charlieix:block/cravat_3",
-		"particle": "charlieix:block/cravat_1"
+		"0": "charlieix:entity/cravat_1",
+		"1": "charlieix:entity/cravat_2",
+		"2": "charlieix:entity/cravat_3",
+		"particle": "charlieix:entity/cravat_1"
 	},
 	"elements": [
 		{

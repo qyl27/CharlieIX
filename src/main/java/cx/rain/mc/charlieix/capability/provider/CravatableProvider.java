@@ -31,11 +31,17 @@ public class CravatableProvider implements ICapabilityProvider, INBTSerializable
 
     @Override
     public CompoundNBT serializeNBT() {
+        if (cravatableCapability == null) {
+            getOrCreate();
+        }
         return cravatableCapability.serializeNBT();
     }
 
     @Override
     public void deserializeNBT(CompoundNBT nbt) {
+        if (cravatableCapability == null) {
+            getOrCreate();
+        }
         cravatableCapability.deserializeNBT(nbt);
     }
 }

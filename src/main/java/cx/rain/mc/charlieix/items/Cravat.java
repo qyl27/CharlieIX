@@ -14,7 +14,6 @@ import net.minecraft.item.Rarity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraftforge.common.util.LazyOptional;
-import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.type.capability.ICurio;
 
 public class Cravat extends Item implements IArmorVanishable, ICurio {
@@ -30,10 +29,13 @@ public class Cravat extends Item implements IArmorVanishable, ICurio {
     public ActionResultType itemInteractionForEntity(ItemStack stack, PlayerEntity playerIn,
                                                      LivingEntity target, Hand hand) {
         if (target instanceof WolfEntity) {
-            LazyOptional<ICravatableCapability> lazy = target.getCapability(ModCapabilities.CRAVATABLE_CAPABILITY);
-            lazy.ifPresent((cap) -> cap.setCravat(stack));
-            stack.shrink(1);
-            return ActionResultType.SUCCESS;
+            WolfEntity wolf = (WolfEntity) target;
+            if (wolf.isTamed()) {
+                LazyOptional<ICravatableCapability> lazy = target.getCapability(ModCapabilities.CRAVATABLE_CAPABILITY);
+                lazy.ifPresent((cap) -> cap.setCravat(stack));
+                stack.shrink(1);
+                return ActionResultType.SUCCESS;
+            }
         }
 
         return super.itemInteractionForEntity(stack, playerIn, target, hand);
